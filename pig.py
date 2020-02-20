@@ -24,10 +24,13 @@ class Game:
             if self.player.round_score == 0:
                 break  
         self.total_player_score += self.player.round_score
-        print("Your total score is: " f'{self.total_player_score}' ". It is now the Computer's turn.")
-        print("")
-        self.player.round_score = 0
-        self.computer_round()
+        if self.total_player_score >= 100:
+            self.end_game()
+        else:
+            print("Your total score is: " f'{self.total_player_score}' ". It is now the Computer's turn.")
+            print("")
+            self.player.round_score = 0
+            self.computer_round()
                 
 
     def computer_round(self):
@@ -41,10 +44,14 @@ class Game:
                 self.player_round()
             if self.dealer.round_score >= 20:
                 self.total_computer_score += self.dealer.round_score
-                print ("The Computer's total score is: " f'{self.total_computer_score}' ". It is now the Player's turn.")
-                print ("")
-                self.dealer.round_score = 0
-                self.player_round()
+                if self.total_computer_score >= 100:
+                    self.end_game()
+                else:
+                    print ("The Computer's total score is: " f'{self.total_computer_score}' ". It is now the Player's turn.")
+                    print ("")
+                    self.dealer.round_score = 0
+                    self.player_round()
+            
             
 
     def choose_starting_player(self):
@@ -70,6 +77,8 @@ class Game:
             print("")
             game = Game()
             game.choose_starting_player()
+        else: 
+            exit()
 
                       
 class Player: 
