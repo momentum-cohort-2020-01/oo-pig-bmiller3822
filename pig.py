@@ -17,7 +17,7 @@ class Game:
         print("Your current total score is: " f'{self.total_player_score}')
         choice = 'r'
         while choice == 'r':
-            choice = input("Do you want to (r)oll or (h)old?")
+            choice = input("Do you want to (r)oll or (h)old? ")
             if choice == 'h':
                 break
             self.dice.roll_dice(self.player)
@@ -70,7 +70,7 @@ class Game:
             self.reset()
 
     def reset(self):
-        reset_game = input("Enter 'reset' to restart the game and roll your first dice.  Enter anything else to exit.")
+        reset_game = input("Enter 'reset' to restart the game and roll your first dice.  Enter anything else to exit. ")
         if reset_game == "reset":
             self.total_player_score = 0
             self.total_computer_score = 0
